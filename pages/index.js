@@ -8,13 +8,14 @@ export default function Home() {
   const [loading, setLoading] = useState(false)
 
   const getRandomTopic = async () => {
-    setLoading(false)
+    if (loading){
+      setLoading(false)
+    }
     var check = study;
-    console.log(check)
     const topics = ["html", "javascript", "css", "git"]
     var random = Math.floor(Math.random() * topics.length)
     if (topics[random] == check){
-      getRandomTopic()
+      return getRandomTopic()
     } 
     setStudy(topics[random])
     await new Promise(r => setTimeout(r, 2000))
