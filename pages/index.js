@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { useEffect, useState } from "react"
 
 
@@ -9,7 +10,7 @@ export default function Home() {
     setLoading(false)
     var check = study;
     console.log(check)
-    const topics = ["HTML", "JAVASCRIPT", "CSS", "GIT"]
+    const topics = ["html", "javascript", "css", "git"]
     var random = Math.floor(Math.random() * topics.length)
     if (topics[random] == check){
       getRandomTopic()
@@ -30,7 +31,10 @@ export default function Home() {
         <h1 className="text-3xl text-center">Im studying...</h1>
         {loading ?
           <div className="flex items-center flex-col">
-            <p className="mt-20 text-5xl text-red-600 font-bold underline">{study}</p>
+            <Link href={`/${study}`} className="mt-20 text-5xl text-red-600 font-bold underline uppercase">
+              <a className="mt-20 text-5xl text-red-600 font-bold underline uppercase">{study}</a>
+            </Link>
+            {/* <p className="mt-20 text-5xl text-red-600 font-bold underline">{study}</p> */}
             <button className="mt-20 bg-black text-white text-2xl p-6 rounded-lg duration-300 hover:-translate-y-2"
               onClick={()=>getRandomTopic()}
             >
