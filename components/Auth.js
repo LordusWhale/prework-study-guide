@@ -22,9 +22,9 @@ export const AuthProvider = ({ children }) => {
 
     return (
         <AuthContext.Provider value={{currentUser}}>
-            <div className="h-screen">
+            <div className="h-screen bg-gray-800">
                 <Nav />
-                <main className="h-screen">
+                <main className="h-screen bg-gray-800">
                     {children}
                 </main>
             </div>

@@ -52,7 +52,7 @@ export const AddCard = ({ setModalOn, addLocalCard, studyType }) => {
     return (
         <div className="bg-zinc-900 opacity-95 fixed inset-0 z-50" >
             <div className="flex h-screen justify-center items-center">
-                <div className="flex flex-col bg-gray-700 w-1/2 h-1/2 border-4 rounded-xl " ref={clickRef}>
+                <div className="flex flex-col bg-gray-700 lg:w-1/2 lg:h-1/2 h-1/2 w-3/4   border-4 rounded-xl" ref={clickRef}>
                     <input type="text" className="mt-10 bg-transparent text-gray-200 border-b w-full text-center text-2xl p-3 focus:outline-none" 
                     onChange={(e)=>setTitle(e.target.value)}
                     placeholder="Title..."></input>
@@ -91,12 +91,3 @@ export const AddCard = ({ setModalOn, addLocalCard, studyType }) => {
         </div>
     )
 }
-{/* <div className="flex flex-col gap-3">
-                    <button 
-                        className="rounded px-4 py-2 text-white bg-green-400"
-                        onClick={()=>handleOKClick()}>Yes</button>
-                        
-                    
-                    <button className="rounded px-4 py-2 text-white bg-blue-500"
-                    onClick={()=>handleCancleClick()}>Cancel</button>
-</div> */}
