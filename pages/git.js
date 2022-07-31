@@ -12,7 +12,7 @@ export default function git({cards}){
 }
 
 export async function getServerSideProps(ctx){
-    const temp = [{title: 'GIT', points: ["Add", "Points"]}]
+    const temp = [{title: 'GIT', points: ["Add", "Points"], id: 1}]
     const cookies = nookies.get(ctx);
     if (cookies.token !== 'null'){
         const token = await verifyIdToken(cookies.token);

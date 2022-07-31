@@ -11,6 +11,12 @@ export const StudyPage = ({ cards, studyType }) => {
     const addLocalCard = (newCard) => {
         setlocalCard(prev => [...prev, newCard])
     }
+    const deleteCard = (id) =>{
+        let filtered = localCard.filter(card=>{
+            return card.id !== id;
+        })
+        setlocalCard(filtered);
+    }
     return (
         <div className="bg-gray-800 h-screen">
             {modal && <AddCard setModalOn={setModal} addLocalCard={addLocalCard} studyType={studyType} />}
@@ -23,7 +29,7 @@ export const StudyPage = ({ cards, studyType }) => {
             <div className="grid grid-cols-2 gap-10 p-10 max-w-full">
                 {localCard.map((c, i) => {
                     return (
-                        <Card heading={c.title} body={c.points} key={i} />
+                        <Card heading={c.title} body={c.points} id={c.id} deleteCard={deleteCard} key={c.id} />
                     )
                 })}
 

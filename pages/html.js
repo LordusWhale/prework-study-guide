@@ -11,7 +11,7 @@ export default function html({cards}) {
 }
 
 export async function getServerSideProps(ctx){
-    const temp = [{title: 'HTML', points: ["Add", "Points"]}]
+    const temp = [{title: 'HTML', points: ["Add", "Points"], id: 1}]
     const cookies = nookies.get(ctx);
 
     if (cookies.token !== 'null'){

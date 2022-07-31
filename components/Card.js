@@ -2,7 +2,7 @@ import { useState } from "react"
 import { DeleteModal } from "./DeleteModal";
 
 
-export const Card = ({ heading, body }) => {
+export const Card = ({ heading, body, deleteCard, id }) => {
     const [modal, setModal] = useState(false);
     return (
         <div className="flex flex-col bg-gray-700 shadow-sm shadow-gray-400 p-4 rounded-lg text-gray-200 max-h-96">
@@ -23,7 +23,7 @@ export const Card = ({ heading, body }) => {
                     )
                 })}
             </ul>
-            {modal && <DeleteModal setModal={setModal}/>}
+            {modal && <DeleteModal setModal={setModal} deleteCard={deleteCard} id={id}/>}
         </div>
     )
 }
