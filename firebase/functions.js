@@ -11,14 +11,10 @@ export async function login() {
         .then(async (result) => {
             const user = result.user;
             try {
-                const studyTypes = ["html", "css", "javascript", "git"]
                 await setDoc(doc(db, "users", user.uid), {
                     uid: user.uid,
                     photoUrl: user.photoURL
                 });
-                for (let i = 0; i< studyTypes.length; i++){
-                    await addCard(studyTypes[i], "Press the + button to add a card", ["Add", "Some", "Points"])
-                }
             } catch (e) {
                 console.error("Error adding document: ", e);
             }
