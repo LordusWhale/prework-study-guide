@@ -7,6 +7,8 @@ export default function Home() {
   const [study, setStudy] = useState('')
   const [loading, setLoading] = useState(false)
 
+ 
+
   const getRandomTopic = async () => {
     if (loading){
       setLoading(false)
@@ -28,16 +30,16 @@ export default function Home() {
 
   }, [])
   return (
-    <div className="flex justify-center items-center align-middle">
-      <div className="mt-72 items-center justify-center flex flex-col">
-        <h1 className="text-3xl text-center">Im studying...</h1>
+    <div className="flex justify-center items-center align-middle bg-gray-800 h-full">
+      <div className=" items-center justify-center flex flex-col">
+        <h1 className="text-3xl text-center text-gray-200">Im studying...</h1>
         {loading ?
           <div className="flex items-center flex-col">
-            <Link href={`/${study}`} className="mt-20 text-5xl text-red-600 font-bold underline uppercase">
-              <a className="mt-20 text-5xl text-red-600 font-bold underline uppercase">{study}</a>
+            <Link href={`/${study}`} className="mt-20 text-5xl text-gray-200 font-bold underline uppercase">
+              <a className="mt-20 text-5xl text-gray-200 font-bold underline uppercase">{study}</a>
             </Link>
             {/* <p className="mt-20 text-5xl text-red-600 font-bold underline">{study}</p> */}
-            <button className="mt-20 bg-black text-white text-2xl p-6 rounded-lg duration-300 hover:-translate-y-2"
+            <button className="mt-20 bg-gray-900 text-white text-2xl p-6 rounded-lg duration-300 hover:-translate-y-2"
               onClick={()=>getRandomTopic()}
             >
               Generate new
@@ -48,6 +50,7 @@ export default function Home() {
          
         }
       </div>
+     
     </div>
   )
 }
