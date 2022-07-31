@@ -1,5 +1,5 @@
 import { signInWithPopup } from "firebase/auth";
-import { collection, doc, getDocs, setDoc } from "firebase/firestore";
+import { collection, doc, getDocs, setDoc, deleteDoc } from "firebase/firestore";
 import { GoogleAuthProvider } from 'firebase/auth';
 import { auth, db } from "./firebase";
 
@@ -52,4 +52,8 @@ export async function getCards(typeOfStudy, uid){
 
     return cards;
 
+}
+
+export async function deleteCardFB(typeOfStudy, docID){
+    await deleteDoc(doc(db, `users/${auth.currentUser.uid}/${typeOfStudy}/${docID}`))
 }

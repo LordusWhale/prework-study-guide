@@ -1,4 +1,4 @@
-export const DeleteModal = ({setModal, deleteCard, id}) =>{
+export const DeleteModal = ({setModal, deleteCard, id }) =>{
 
     return(
         <div className="bg-zinc-900 opacity-90 fixed inset-0 z-50">

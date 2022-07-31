@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
 import { Card } from "./Card";
 import { AddCard } from "./AddCard";
+import { useAuth } from "./Auth";
+import { deleteCardFB } from "../firebase/functions";
 export const StudyPage = ({ cards, studyType }) => {
     const [modal, setModal] = useState(false);
+    const {currentUser} = useAuth();
     const [localCard, setlocalCard] = useState([]);
     useEffect(() => {
         setlocalCard(cards)
@@ -11,11 +14,17 @@ export const StudyPage = ({ cards, studyType }) => {
     const addLocalCard = (newCard) => {
         setlocalCard(prev => [...prev, newCard])
     }
-    const deleteCard = (id) =>{
+    const deleteCard = async (id) =>{
         let filtered = localCard.filter(card=>{
             return card.id !== id;
         })
-        setlocalCard(filtered);
+        if (currentUser){
+            await deleteCardFB(studyType, id)
+            setlocalCard(filtered);
+        } else{
+            setlocalCard(filtered);
+        }
+        
     }
     return (
         <div className="bg-gray-800 h-screen">
