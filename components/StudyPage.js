@@ -9,7 +9,7 @@ export const StudyPage = ({ cards, studyType }) => {
     const [localCard, setlocalCard] = useState([]);
     useEffect(() => {
         setlocalCard(cards)
-    }, [])
+    }, [cards])
 
     const addLocalCard = (newCard) => {
         setlocalCard(prev => [...prev, newCard])

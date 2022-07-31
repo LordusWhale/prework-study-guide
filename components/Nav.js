@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { useState } from "react";
 import { Login } from "./Login";
-import { getAuth, onAuthStateChanged, signOut } from "firebase/auth"
+import { getAuth, signOut } from "firebase/auth"
 import { auth } from "../firebase/firebase";
 import { useAuth } from "./Auth";
 export const Nav = () => {
@@ -56,11 +56,11 @@ export const Nav = () => {
                     <a className="text-white font-bold text-3xl">STUDY GUIDE</a>
                 </Link>
                 <button className='md:hidden' onClick={() => setMenu(prev => !prev)}>
-                    {menu ? <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                    {menu ? <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                        <path  strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
-                        : <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7" />
+                        : <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16m-7 6h7" />
                         </svg>}
                 </button>
                 {modalOn && <Login setModalOn={setModalOn} />}

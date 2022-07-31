@@ -1,5 +1,6 @@
 import { login } from "../firebase/functions";
-import Image from '../public/google-sign-in.png';
+import GoogleImage from '../public/google-sign-in.png';
+import Image from "next/dist/client/image";
 export const Login = ({ setModalOn}) =>{
     const handleOKClick = async () =>{
         await login();
@@ -18,7 +19,7 @@ export const Login = ({ setModalOn}) =>{
                 <div className="flex flex-col gap-3">
                    
                     <button 
-                        onClick={()=>handleOKClick()}> <img className="w-48" src={Image.src}/></button>
+                        onClick={()=>handleOKClick()}><Image src={GoogleImage} /></button>
                         
                     
                     <button className="rounded px-4 py-2 text-white bg-blue-500"
