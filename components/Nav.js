@@ -53,7 +53,7 @@ export const Nav = () => {
                     </div>
                     :
                     <></>}
-
+                
                 <button className="p-4 text-black text-lg rounded-lg mr-20 duration-500 bg-slate-300 hover:translate-y-1"
                     onClick={() => currentUser ? logout() : clicked()}>{currentUser ? "Logout" : "Login"}</button>
                 {modalOn && <Login setModalOn={setModalOn} />}

@@ -17,6 +17,11 @@ export default function Git() {
             const data = await getCards("git", user.currentUser.uid);
             setCards(data);
             setLoading(false);
+        }else{
+            const data = localStorage.getItem("git");
+            if (data){
+                setCards(JSON.parse(data));
+            }
         }
 
         setLoading(false)
@@ -29,7 +34,7 @@ export default function Git() {
     return (
         <>
             {loading ? <Spinner page={true} /> :
-                <StudyPage cards={cards} studyType="css" />}
+                <StudyPage cards={cards} studyType="git" />}
         </>
 
     )

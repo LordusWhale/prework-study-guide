@@ -12,7 +12,11 @@ export const StudyPage = ({ cards, studyType }) => {
     }, [cards])
 
     const addLocalCard = (newCard) => {
-        setlocalCard(prev => [...prev, newCard])
+        const card = [...localCard, newCard]
+        setlocalCard(card)
+        if (!currentUser){
+            localStorage.setItem(studyType, JSON.stringify(card))
+        }
     }
     const deleteCard = async (id) =>{
         let filtered = localCard.filter(card=>{
@@ -22,6 +26,7 @@ export const StudyPage = ({ cards, studyType }) => {
             await deleteCardFB(studyType, id)
             setlocalCard(filtered);
         } else{
+            localStorage.setItem(studyType, JSON.stringify(filtered))
             setlocalCard(filtered);
         }
         

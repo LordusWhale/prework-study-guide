@@ -16,7 +16,12 @@ export default function Javascript() {
         if (user.currentUser) {
             const data = await getCards("javascript", user.currentUser.uid);
             setCards(data);
-        } 
+        } else{
+            const data = localStorage.getItem("javascript");
+            if (data){
+                setCards(JSON.parse(data));
+            }
+        }
         setLoading(false);
 
     }
@@ -28,7 +33,7 @@ export default function Javascript() {
     return (
         <>
             {loading ? <Spinner page={true} /> :
-                <StudyPage cards={cards} studyType="css" />}
+                <StudyPage cards={cards} studyType="javascript" />}
         </>
 
     )

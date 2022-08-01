@@ -17,6 +17,11 @@ export default function Html() {
             const data = await getCards("html", user.currentUser.uid);
             setCards(data);
             setLoading(false);
+        }else{
+            const data = localStorage.getItem("html");
+            if (data){
+                setCards(JSON.parse(data));
+            }
         }
         setLoading(false)
 
@@ -28,7 +33,7 @@ export default function Html() {
     return (
         <>
             {loading ? <Spinner page={true} /> :
-                <StudyPage cards={cards} studyType="css" />}
+                <StudyPage cards={cards} studyType="html" />}
         </>
 
     )

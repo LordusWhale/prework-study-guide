@@ -17,6 +17,11 @@ export default function Css() {
             const data = await getCards("css", user.currentUser.uid);
             setCards(data);
             setLoading(false);
+        } else{
+            const data = localStorage.getItem("css");
+            if (data){
+                setCards(JSON.parse(data));
+            }
         }
         setLoading(false)
 

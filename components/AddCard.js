@@ -20,7 +20,14 @@ export const AddCard = ({ setModalOn, addLocalCard, studyType }) => {
             addLocalCard(newCard);
         }
         else{
-            addLocalCard(newCard);
+            let id = JSON.parse(localStorage.getItem(studyType));
+            if (!id){
+                id = 0;
+            } else{
+                id = id.length +1;
+            }
+            const newLocalCard = {title: title, points: list, id: id}
+            addLocalCard(newLocalCard);
         }
         setModalOn(false);
         
