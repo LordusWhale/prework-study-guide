@@ -9,7 +9,6 @@ export const Login = ({ setModalOn}) =>{
 
     const handleCancleClick = () =>{
         setModalOn(false)
-        console.log(Image)
     }
     return(
     <div className="bg-zinc-900 opacity-90 fixed inset-0 z-50">

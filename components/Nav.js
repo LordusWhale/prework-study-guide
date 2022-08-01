@@ -2,7 +2,6 @@ import Link from "next/link"
 import { useState } from "react";
 import { Login } from "./Login";
 import { getAuth, signOut } from "firebase/auth"
-import { auth } from "../firebase/firebase";
 import { useAuth } from "./Auth";
 export const Nav = () => {
     const [menu, setMenu] = useState(true)

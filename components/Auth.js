@@ -1,7 +1,6 @@
 import { getAuth } from "firebase/auth";
 import { createContext, useContext, useEffect, useState } from "react";
 import { Nav } from "./Nav";
-import nookies from 'nookies';
 
 const AuthContext = createContext({});
 
