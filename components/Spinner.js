@@ -1,5 +1,5 @@
 
-
+//Loading
 
 export const Spinner = ({page}) =>{
     return(
