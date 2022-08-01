@@ -1,3 +1,4 @@
+//firebase config
 export const firebaseConfig = {
 
     apiKey: process.env.NEXT_PUBLIC_API_KEY,
