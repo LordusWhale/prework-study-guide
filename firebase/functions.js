@@ -3,7 +3,7 @@ import { collection, doc, getDocs, setDoc, deleteDoc } from "firebase/firestore"
 import { GoogleAuthProvider } from 'firebase/auth';
 import { auth, db } from "./firebase";
 
-
+//functions for firebase login/database
 
 export async function login() {
     const provider = new GoogleAuthProvider();
