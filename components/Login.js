@@ -19,7 +19,7 @@ export const Login = ({ setModalOn}) =>{
                 <div className="flex flex-col gap-3">
                    
                     <button 
-                        onClick={()=>handleOKClick()}><Image src={GoogleImage} /></button>
+                        onClick={()=>handleOKClick()}><Image src={GoogleImage} alt="Google Sign In" /></button>
                         
                     
                     <button className="rounded px-4 py-2 text-white bg-blue-500"
