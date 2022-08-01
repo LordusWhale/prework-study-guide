@@ -11,12 +11,12 @@ export const AuthProvider = ({ children }) => {
         const auth = getAuth();
         return auth.onIdTokenChanged(async (currentUser) => {
             if (!currentUser) {
-                nookies.set(undefined, 'token', null, { path: '/' });
+                // nookies.set(undefined, 'token', null, { path: '/' });
                 return;
             }
             const token = await currentUser.getIdToken();
             setcurrentUser(currentUser);
-            nookies.set(undefined, 'token', token, { path: '/' });
+            // nookies.set(undefined, 'token', token, { path: '/' });
         })
     }, [])
 
