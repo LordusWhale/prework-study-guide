@@ -1,33 +1,35 @@
-import nookies from 'nookies';
-import { verifyIdToken } from "../firebase/firebaseAdmin";
 import { getCards } from "../firebase/functions";
 import { StudyPage } from "../components/StudyPage";
+import { useEffect, useState } from 'react';
+import { getAuth } from "firebase/auth"
+import { Spinner } from '../components/Spinner';
 
 
-export default function javascript({cards}){
-    
-    return(
-        <StudyPage cards={cards} studyType="javascript" />
+
+export default function Javascript() {
+
+    const [cards, setCards] = useState([{ title: 'JAVASCRIPT', points: ["Add", "Points"], id: 1 }])
+    const [loading, setLoading] = useState(true);
+
+    const getData = async () => {
+        const user = getAuth();
+        if (user.currentUser) {
+            const data = await getCards("javascript", user.currentUser.uid);
+            setCards(data);
+        } 
+        setLoading(false);
+
+    }
+
+    useEffect(() => {
+        getData();
+    }, [])
+
+    return (
+        <>
+            {loading ? <Spinner page={true} /> :
+                <StudyPage cards={cards} studyType="css" />}
+        </>
+
     )
-}
-
-export async function getServerSideProps(ctx){
-    const temp = [{title: 'JAVASCRIPT', points: ["Add", "Points"], id: 1}]
-    const cookies = nookies.get(ctx);
-    if (cookies.token !== 'null'){
-        const token = await verifyIdToken(cookies.token);
-        const {uid} = token;
-        const data = await getCards("javascript", uid)
-        return{
-            props: {
-                cards: data
-            }
-        }
-    }
-    return{
-        props:{
-            cards: temp
-        }
-    }
-   
 }

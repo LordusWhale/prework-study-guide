@@ -1,33 +1,36 @@
-import nookies from 'nookies';
-import { verifyIdToken } from "../firebase/firebaseAdmin";
 import { getCards } from "../firebase/functions";
 import { StudyPage } from "../components/StudyPage";
+import { useEffect, useState } from 'react';
+import { getAuth } from "firebase/auth"
+import { Spinner } from '../components/Spinner';
 
 
-export default function css({cards}){
-    
-    return(
-        <StudyPage cards={cards} studyType="css" />
+
+export default function Css() {
+
+    const [cards, setCards] = useState([{ title: 'CSS', points: ["Add", "Points"], id: 1 }])
+    const [loading, setLoading] = useState(true);
+
+    const getData = async () => {
+        const user = getAuth();
+        if (user.currentUser) {
+            const data = await getCards("css", user.currentUser.uid);
+            setCards(data);
+            setLoading(false);
+        }
+        setLoading(false)
+
+    }
+    useEffect(() => {
+        getData();
+    }, [])
+
+    return (
+        <>
+            {loading ? <Spinner page={true} /> :
+                <StudyPage cards={cards} studyType="css" />}
+        </>
+
     )
 }
 
-export async function getServerSideProps(ctx){
-    const temp = [{title: 'CSS', points: ["Add", "Points"], id: 1}]
-    const cookies = nookies.get(ctx);
-    if (cookies.token !== 'null'){
-        const token = await verifyIdToken(cookies.token);
-        const {uid} = token;
-        const data = await getCards("css", uid)
-        return{
-            props: {
-                cards: data
-            }
-        }
-    }
-    return{
-        props:{
-            cards: temp
-        }
-    }
-   
-}
