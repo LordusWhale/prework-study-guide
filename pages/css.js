@@ -6,9 +6,9 @@ import { Spinner } from '../components/Spinner';
 
 
 
-export default function css() {
+export default function Css() {
 
-    const [cards, setCards] = useState([])
+    const [cards, setCards] = useState([{ title: 'CSS', points: ["Add", "Points"], id: 1 }])
     const [loading, setLoading] = useState(true);
 
     const getData = async () => {
@@ -17,10 +17,9 @@ export default function css() {
             const data = await getCards("css", user.currentUser.uid);
             setCards(data);
             setLoading(false);
-        } else {
-            setCards([{ title: 'CSS', points: ["Add", "Points"], id: 1 }])
-            setLoading(false)
         }
+        setLoading(false)
+
     }
     useEffect(() => {
         getData();

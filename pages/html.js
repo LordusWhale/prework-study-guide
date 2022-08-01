@@ -6,21 +6,20 @@ import { Spinner } from '../components/Spinner';
 
 
 
-export default function html() {
+export default function Html() {
 
-    const [cards, setCards] = useState([])
+    const [cards, setCards] = useState([{ title: 'HTML', points: ["Add", "Points"], id: 1 }])
     const [loading, setLoading] = useState(true);
     const user = getAuth();
     const getData = async () => {
-        
+
         if (user.currentUser) {
             const data = await getCards("html", user.currentUser.uid);
             setCards(data);
             setLoading(false);
-        } else {
-            setCards([{ title: 'HTML', points: ["Add", "Points"], id: 1 }])
-            setLoading(false)
         }
+        setLoading(false)
+
     }
     useEffect(() => {
         getData();
@@ -28,7 +27,7 @@ export default function html() {
 
     return (
         <>
-            {loading ? <Spinner page={true}/> :
+            {loading ? <Spinner page={true} /> :
                 <StudyPage cards={cards} studyType="css" />}
         </>
 

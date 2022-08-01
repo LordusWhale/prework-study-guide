@@ -6,9 +6,9 @@ import { Spinner } from '../components/Spinner';
 
 
 
-export default function javascript() {
+export default function Javascript() {
 
-    const [cards, setCards] = useState([])
+    const [cards, setCards] = useState([{ title: 'JAVASCRIPT', points: ["Add", "Points"], id: 1 }])
     const [loading, setLoading] = useState(true);
 
     const getData = async () => {
@@ -16,12 +16,11 @@ export default function javascript() {
         if (user.currentUser) {
             const data = await getCards("javascript", user.currentUser.uid);
             setCards(data);
-            setLoading(false);
-        } else {
-            setCards([{ title: 'JAVASCRIPT', points: ["Add", "Points"], id: 1 }])
-            setLoading(false)
-        }
+        } 
+        setLoading(false);
+
     }
+
     useEffect(() => {
         getData();
     }, [])

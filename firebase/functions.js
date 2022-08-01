@@ -18,7 +18,7 @@ export async function login() {
             } catch (e) {
                 console.error("Error adding document: ", e);
             }
-            
+
         }).catch((error) => {
             const credential = GoogleAuthProvider.credentialFromError(error);
 

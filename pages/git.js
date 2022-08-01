@@ -6,9 +6,9 @@ import { Spinner } from '../components/Spinner';
 
 
 
-export default function git() {
+export default function Git() {
 
-    const [cards, setCards] = useState([])
+    const [cards, setCards] = useState([{ title: 'GIT', points: ["Add", "Points"], id: 1 }])
     const [loading, setLoading] = useState(true);
 
     const getData = async () => {
@@ -17,10 +17,10 @@ export default function git() {
             const data = await getCards("git", user.currentUser.uid);
             setCards(data);
             setLoading(false);
-        } else {
-            setCards([{ title: 'GIT', points: ["Add", "Points"], id: 1 }])
-            setLoading(false)
         }
+
+        setLoading(false)
+
     }
     useEffect(() => {
         getData();
