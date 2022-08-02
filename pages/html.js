@@ -21,6 +21,8 @@ export default function Html() {
             const data = localStorage.getItem("html");
             if (data){
                 setCards(JSON.parse(data));
+            } else{
+                localStorage.setItem("html", JSON.stringify(cards))
             }
         }
         setLoading(false)

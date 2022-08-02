@@ -21,6 +21,8 @@ export default function Css() {
             const data = localStorage.getItem("css");
             if (data){
                 setCards(JSON.parse(data));
+            }else{
+                localStorage.setItem("css", JSON.stringify(cards))
             }
         }
         setLoading(false)

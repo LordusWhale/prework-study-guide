@@ -43,7 +43,7 @@ export const StudyPage = ({ cards, studyType }) => {
             <div className="grid  gap-10 p-10 max-w-full lg:grid-cols-2 md:grid-cols-1">
                 {localCard.map((c, i) => {
                     return (
-                        <Card heading={c.title} body={c.points} id={c.id} deleteCard={deleteCard} key={c.id} />
+                        <Card heading={c.title} body={c.points} id={c.id} studyType={studyType} setCard={setlocalCard} deleteCard={deleteCard} key={c.id} />
                     )
                 })}
 

@@ -20,6 +20,8 @@ export default function Javascript() {
             const data = localStorage.getItem("javascript");
             if (data){
                 setCards(JSON.parse(data));
+            }else{
+                localStorage.setItem("javascript", JSON.stringify(cards))
             }
         }
         setLoading(false);

@@ -1,5 +1,5 @@
 import { signInWithPopup } from "firebase/auth";
-import { collection, doc, getDocs, setDoc, deleteDoc } from "firebase/firestore";
+import { collection, doc, getDocs, setDoc, deleteDoc, getDoc, updateDoc } from "firebase/firestore";
 import { GoogleAuthProvider } from 'firebase/auth';
 import { auth, db } from "./firebase";
 
@@ -54,6 +54,28 @@ export async function getCards(typeOfStudy, uid){
 
 }
 
+export async function getSingleCard(id, typeOfStudy){
+    console.log(typeOfStudy)
+    console.log(id)
+   const docRef = doc(db, `users/${auth.currentUser.uid}/${typeOfStudy}/${id}`);
+   const data = await getDoc(docRef);
+   if (data.exists()){
+    return data.data();
+   }
+   else{
+    return [1, 2, 3]
+   }
+}
+
 export async function deleteCardFB(typeOfStudy, docID){
     await deleteDoc(doc(db, `users/${auth.currentUser.uid}/${typeOfStudy}/${docID}`))
+}
+
+export async function updateCardFB(docID, typeOfStudy, title, points){
+    const docRef = doc(db, `users/${auth.currentUser.uid}/${typeOfStudy}/${docID}`);
+
+    await updateDoc(docRef, {
+        title: title,
+        points: points
+    })
 }

@@ -21,6 +21,8 @@ export default function Git() {
             const data = localStorage.getItem("git");
             if (data){
                 setCards(JSON.parse(data));
+            } else{
+                localStorage.setItem("git", JSON.stringify(cards))
             }
         }
 

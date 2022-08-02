@@ -8,7 +8,7 @@ export const AddCard = ({ setModalOn, addLocalCard, studyType }) => {
     const [title, setTitle] = useState("")
 
     const addToList = (value) => {
-        var temp = [...list];
+        let temp = [...list];
         temp.push(value);
         setList(temp);
         setText("");
