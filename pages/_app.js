@@ -7,7 +7,7 @@ function MyApp({ Component, pageProps }) {
       <Head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="description" content="A simple website to create, update and delete study cards."></meta>
+        <meta name="description" content="A simple website to create, update and delete study cards." />
       </Head>
       <Component {...pageProps} />
     </AuthProvider>
