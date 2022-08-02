@@ -22,9 +22,6 @@ export async function login() {
 
         }).catch((error) => {
             const credential = GoogleAuthProvider.credentialFromError(error);
-            console.log(credential);
-            console.log(error);
-            console.log(error.message)
         })
 }
 
