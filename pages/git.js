@@ -3,7 +3,7 @@ import { StudyPage } from "../components/StudyPage";
 import { useEffect, useState } from 'react';
 import { getAuth } from "firebase/auth"
 import { Spinner } from '../components/Spinner';
-
+import Head from "next/head";
 
 
 export default function Git() {
@@ -35,6 +35,9 @@ export default function Git() {
 
     return (
         <>
+         <Head>
+            <title>Git</title>
+        </Head>
             {loading ? <Spinner page={true} /> :
                 <StudyPage cards={cards} studyType="git" />}
         </>

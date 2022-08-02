@@ -3,7 +3,7 @@ import { StudyPage } from "../components/StudyPage";
 import { useEffect, useState } from 'react';
 import { getAuth } from "firebase/auth"
 import { Spinner } from '../components/Spinner';
-
+import Head from "next/head";
 
 
 export default function Javascript() {
@@ -34,6 +34,9 @@ export default function Javascript() {
 
     return (
         <>
+         <Head>
+            <title>Javascript</title>
+        </Head>
             {loading ? <Spinner page={true} /> :
                 <StudyPage cards={cards} studyType="javascript" />}
         </>

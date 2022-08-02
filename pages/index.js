@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { useEffect, useState } from "react"
 import { Spinner } from "../components/Spinner"
-
+import Head from "next/head"
 
 export default function Home() {
   const [study, setStudy] = useState('')
@@ -30,7 +30,11 @@ export default function Home() {
 
   }, [])
   return (
+    
     <div className="flex justify-center items-center align-middle bg-gray-800 h-full">
+       <Head>
+            <title>Home</title>
+        </Head>
       <div className=" items-center justify-center flex flex-col">
         <h1 className="text-3xl text-center text-gray-200">Im studying...</h1>
         {loading ?
